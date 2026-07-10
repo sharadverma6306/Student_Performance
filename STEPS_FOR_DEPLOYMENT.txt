@@ -1,0 +1,46 @@
+Steps for deployment
+
+py -m venv venv
+
+.\venv\Scripts\activate
+
+pip install streamlit pandas numpy scikit-learn joblib
+
+pip freeze > requirements.txt
+
+streamlit run app.py
+
+Once ran locally then push your code to GitHub and connect to streamlit cloud 
+
+# Initialize a empty git repository
+git init
+
+# Create a .gitignore file to exclude the virtual environment folder
+echo venv/ > .gitignore
+
+# Stage all files (app.py, student_model.pkl, .gitignore)
+git add .
+
+# Commit them locally
+git commit -m "Initial commit: Streamlit app with trained model"
+
+# Rename the default branch to main
+git branch -M main
+
+# Link your local repo to GitHub (Replace with your actual GitHub username URL)
+git remote add origin https://github.com/YOUR_GITHUB_USERNAME/Multil-linear-regression-app.git
+
+# Push your code
+git push -u origin main
+
+pip freeze > requirements.txt
+
+git add requirements.txt
+git commit -m "Add requirements.txt"
+git push origin main
+
+
+If push code is failed then 
+
+git pull origin main --rebase
+git push -u origin main
